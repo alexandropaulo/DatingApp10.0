@@ -14,6 +14,8 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 //builder.Services.AddOpenApi(); Removido pelo instrutor pesquisar documento da API
 
+builder.Services.AddCors();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +30,8 @@ var app = builder.Build();
 
 // Removido mas sera utilizado mais tarde para autenticar
 //app.UseAuthorization();
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod()
+      .WithOrigins("http://localhost:4200","https://localhost:4200"));
 
 app.MapControllers();
 
