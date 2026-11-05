@@ -1,15 +1,16 @@
 using API.Data;
 using API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
-
+/* Retirado deviddo a alteração para herdar da classe base
 [Route("api/[controller]")] //localhost:5001/members
-[ApiController]
+[ApiController]*/
 
-public class MembersController(AppDbContext context) : ControllerBase
+public class MembersController(AppDbContext context) : BaseApiController //ControllerBase Alterado para herdar da classe modelo
 {
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<AppUser>>> GetMembers()
@@ -18,6 +19,7 @@ public class MembersController(AppDbContext context) : ControllerBase
         return members;
     }
 
+    [Authorize]
     [HttpGet("{id}")] //localhost:5001/members/bop=id
     public async Task<ActionResult<AppUser>> GetMember(string id)
     {

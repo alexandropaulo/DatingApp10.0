@@ -1,10 +1,15 @@
-<div class="card bg-base=100 w-1/2 mx-auto p-10 mt-10 shadow-xl">
+<!--<app-nav></app-nav> alterado para a nova notação abaixo-->
+<app-nav />
+
+
+<!---- trecho abaixo retirado pois a exibição foi transferida para o componente home
+<div class="card bg-base=100 w-1/2 mx-auto p-10 mt-24 shadow-xl">
 
     <h3 class="text-3xl  text-red-500 ">{{title}}</h3>
     <ul class="list">
-    <!--@for (member of members; track members.id) { linha alterada para utilizar o retorno do signal -->
+    <--@for (member of members; track members.id) { linha alterada para utilizar o retorno do signal --
     @for (member of members(); track member.id) {
-        <!--<li>{{member.id}} - {{member.displayName}}</li> alterada para exibir as fotos e os ids como abaixo-->
+        <--<li>{{member.id}} - {{member.displayName}}</li> alterada para exibir as fotos e os ids como abaixo --
         <li class="list-row items-center">
             <img src="/user.png" alt="user avatar" class="size-12 rounded-box">
             <div>
@@ -15,4 +20,8 @@
      </ul> 
 
 </div>
+-->
 
+<app-home></app-home> <!--notacao antiga-->
+
+<!--<app-home [membersFromApp]="members()"/> Retirado por ser apenas um exemplo de comuncação pao e filho-->

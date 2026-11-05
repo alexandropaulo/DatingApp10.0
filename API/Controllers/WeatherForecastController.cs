@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
+/* retirado devido a herança da classe base
 [ApiController]
-[Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+[Route("[controller]")] */
+
+public class WeatherForecastController : BaseApiController //ControllerBase
 {
     private static readonly string[] Summaries =
     [
