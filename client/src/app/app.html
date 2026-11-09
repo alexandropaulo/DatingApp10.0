@@ -22,6 +22,16 @@
 </div>
 -->
 
-<app-home></app-home> <!--notacao antiga-->
+<!--<app-home></app-home> --> <!--notacao antiga, substituído pelo rooter-outlet-->
 
 <!--<app-home [membersFromApp]="members()"/> Retirado por ser apenas um exemplo de comuncação pao e filho-->
+
+<div 
+    [class.mt-24]="router.url !== '/'"
+    [class.container]="router.url !== '/'"
+    [class.mx-auto]="router.url !== '/'"
+    >
+    <router-outlet />
+</div>
+
+<!--[ngClass]="{'mt-24 container mx-auto': !(router.url === '/')}" Substituído pela notação acima-->
